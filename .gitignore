@@ -1,0 +1,31 @@
+# cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# env
+./myvenv
+./venv
+
+# logs & temp
+*.log
+*.tmp
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# env variables
+.env
+
+# VS Code
+.vscode/
+
+# text
+*.txt
+text
+
+
+
