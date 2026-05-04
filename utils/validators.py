@@ -12,20 +12,33 @@ def is_null(value):
     return value is None or value.strip() == ""
 
 
-def is_valid_salary(value):
+def validate_field(value, rules):
     """
-    Check if salary is a valid positive integer
-    """
-    try:
-        value = int(value)
+    Validate a field value against rules from config.
 
-        if value < 0:
+    Args:
+        value: The field value to check
+        rules: Dict with validation rules, e.g. {"type": "int", "min": 0}
+
+    Returns:
+        True if valid, False otherwise
+    """
+
+    expected_type = rules.get("type")
+
+    if expected_type == "int":
+        try:
+            num = int(value)
+        except (ValueError, TypeError):
             return False
 
-        return True
+        if "min" in rules and num < rules["min"]:
+            return False
 
-    except:
-        return False
+        if "max" in rules and num > rules["max"]:
+            return False
+
+    return True
 
 
 def find_duplicates(data):

@@ -1,0 +1,11 @@
+id,name,department,salary,joining_year
+3,,Finance,80000,2021
+4,Vikram,Engineering,-5000,2018
+5,Raj,Sales,abc,2022
+8,,Marketing,50000,2021
+12,Arjun,Engineering,not_available,2021
+15,,HR,55000,2022
+16,Ravi,Engineering,-2000,2016
+18,Ali,Sales,abc,2023
+24,,Finance,null,2020
+2,Anita,HR,60000,2019

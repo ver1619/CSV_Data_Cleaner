@@ -1,12 +1,19 @@
 # utils/file_utils.py
 
 import csv
+import logging
 from cleaner.exceptions import EmptyFileError, SchemaError
 
+logger = logging.getLogger(__name__)
 
-def read_csv(file_path):
+
+def read_csv(file_path, required_columns=None):
     """
     Reads a CSV file and returns list of rows (as dictionaries)
+
+    Args:
+        file_path: Path to the CSV file
+        required_columns: List of column names that must be present
     """
 
     data = []
@@ -19,18 +26,18 @@ def read_csv(file_path):
             raise EmptyFileError("CSV file is empty")
 
         # Check required columns
-        required_columns = ["id", "name", "salary"]
-
-        for col in required_columns:
-            if col not in reader.fieldnames:
-                raise SchemaError(f"Missing column: {col}")
+        if required_columns:
+            for col in required_columns:
+                if col not in reader.fieldnames:
+                    raise SchemaError(f"Missing column: {col}")
 
         for row in reader:
             data.append(row)
 
     return data
 
-# Add this function below read_csv()
+
+
 
 def write_csv(file_path, data):
     """
@@ -38,10 +45,8 @@ def write_csv(file_path, data):
     """
 
     if not data:
-        print("No data to write")
+        logger.warning("No data to write")
         return
-
-    import csv
 
     # Get headers from first row
     headers = data[0].keys()

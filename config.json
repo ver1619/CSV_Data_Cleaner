@@ -1,0 +1,10 @@
+{
+  "required_columns": ["id", "name", "salary"],
+  "null_check_columns": ["name"],
+  "validation_rules": {
+    "salary": {
+      "type": "int",
+      "min": 0
+    }
+  }
+}
