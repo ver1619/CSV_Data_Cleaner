@@ -1,3 +1,5 @@
+![Status](https://img.shields.io/badge/status-retired-red)
+
 # *CSV Data Cleaner CLI*
 
 A command-line tool to clean messy CSV file, finds problems in it, fixes them, and gives you back a clean version.
